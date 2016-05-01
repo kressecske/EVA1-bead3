@@ -14,10 +14,19 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
     logindialog.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    tableeditorwidget.cpp \
+    clientlistwidget.cpp \
+    clientaccountsdialog.cpp
 
 HEADERS  += \
     logindialog.h \
-    mainwindow.h
+    mainwindow.h \
+    tableeditorwidget.h \
+    clientlistwidget.h \
+    clientaccountsdialog.h
 
-FORMS    += banksystem.ui
+FORMS    += banksystem.ui \
+    clientlistwidget.ui \
+    appartmentlistwidget.ui \
+    clientaccountsdialog.ui

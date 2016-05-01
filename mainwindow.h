@@ -3,8 +3,9 @@
 
 #include <QMainWindow>
 #include <QMdiArea>
-
-
+#include "tableeditorwidget.h"
+#include "clientlistwidget.h"
+#include "clientaccountsdialog.h"
 class MainWindow : public QMainWindow // főablak
 {
     Q_OBJECT
@@ -16,7 +17,8 @@ protected:
     void closeEvent(QCloseEvent *event); // ablak bezárása
 
 private slots:
-
+    void userAction_Triggered();
+    void clientAction_Triggered();
 
 private:
     void setupMenu(); // menü létrehozása
@@ -33,8 +35,20 @@ private:
     QAction* buildingAction;
     QAction* appartmentAction;
     QAction* seasonAction;
-    QAction* customerAction;
+
+
+    QAction* clientAction;
     QAction* userAction;
+
+
+    clientlistwidget* clientListWidget;
+    TableEditorWidget* userEditorWidget;
+
+
+    QSqlTableModel* userTableModel;
+    QSqlTableModel* clientTableModel;
+    QSqlTableModel* accountTableModel;
+
 
 };
 
