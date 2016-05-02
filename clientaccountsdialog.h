@@ -5,6 +5,7 @@
 #include <QSqlTableModel>
 #include <QWidget>
 #include <QDialog>
+#include <QSortFilterProxyModel>
 
 namespace Ui{
     class clientaccountsdialog;
@@ -30,6 +31,7 @@ private:
     int clientId;
     QSqlTableModel* clientTableModel;
     QSqlTableModel* accountTableModel;
+    QSortFilterProxyModel *clientIdSortFilterModel; // szűrő és rendező modellek
 };
 
 #endif // CLIENTACCOUNTSDIALOG_H

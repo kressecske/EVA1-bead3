@@ -94,14 +94,7 @@ void MainWindow::setupModels()
     userTableModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
 
     //Accounts
-    accountTableModel = new QSqlTableModel();
-    accountTableModel->setTable("account");
-    accountTableModel->setHeaderData(0, Qt::Horizontal, trUtf8("ID"));
-    accountTableModel->setHeaderData(1, Qt::Horizontal, trUtf8("Number"));
-    accountTableModel->setHeaderData(2, Qt::Horizontal, trUtf8("Create Date "));
-    accountTableModel->setHeaderData(3, Qt::Horizontal, trUtf8("Closed"));
-    accountTableModel->setHeaderData(4, Qt::Horizontal, trUtf8("Client ID"));
-    accountTableModel->setEditStrategy(QSqlTableModel::OnManualSubmit);
-
+    accountTableModel = new AccountTableModel();
+    accountTableModel->select();
 
 }

@@ -17,14 +17,16 @@ SOURCES += main.cpp\
     mainwindow.cpp \
     tableeditorwidget.cpp \
     clientlistwidget.cpp \
-    clientaccountsdialog.cpp
+    clientaccountsdialog.cpp \
+    accounttablemodel.cpp
 
 HEADERS  += \
     logindialog.h \
     mainwindow.h \
     tableeditorwidget.h \
     clientlistwidget.h \
-    clientaccountsdialog.h
+    clientaccountsdialog.h \
+    accounttablemodel.h
 
 FORMS    += banksystem.ui \
     clientlistwidget.ui \

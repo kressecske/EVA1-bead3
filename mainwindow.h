@@ -6,6 +6,7 @@
 #include "tableeditorwidget.h"
 #include "clientlistwidget.h"
 #include "clientaccountsdialog.h"
+#include "accounttablemodel.h"
 class MainWindow : public QMainWindow // főablak
 {
     Q_OBJECT

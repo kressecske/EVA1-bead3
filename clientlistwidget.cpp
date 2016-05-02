@@ -2,7 +2,7 @@
 #include <QSqlQuery>
 #include <QMessageBox>
 #include "ui_clientlistwidget.h"
-
+#include "accounttablemodel.h"
 clientlistwidget::clientlistwidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::clientlistwidget)

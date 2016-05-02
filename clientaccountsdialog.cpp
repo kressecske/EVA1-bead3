@@ -11,6 +11,7 @@ ClientAccountsDialog::ClientAccountsDialog(QWidget *parent) :
 
     clientTableModel = 0;
     accountTableModel = 0;
+    clientIdSortFilterModel = new QSortFilterProxyModel();
 }
 ClientAccountsDialog::~ClientAccountsDialog()
 {
@@ -27,10 +28,23 @@ void ClientAccountsDialog::setModel(QSqlTableModel* clientModel, QSqlTableModel*
 {
     clientTableModel = clientModel;
     accountTableModel = accountModel;
+
+    QAbstractItemModel *currentModel = accountModel;
+
+    clientIdSortFilterModel->setSourceModel(currentModel);
+    clientIdSortFilterModel->setFilterKeyColumn(4);
+    clientIdSortFilterModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
+    clientIdSortFilterModel->setFilterRegExp(QString::number(clientId));
+
+    currentModel = clientIdSortFilterModel;
+
+
     setupGui();
 }
 
 void ClientAccountsDialog::setupGui()
 {
-    ui->accountTableView->setModel(accountTableModel);
+    ui->accountTableView->setModel(clientIdSortFilterModel);
+    ui->accountTableView->setColumnHidden(0,true);
+    ui->accountTableView->setColumnHidden(4,true);
 }
