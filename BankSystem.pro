@@ -16,19 +16,26 @@ SOURCES += main.cpp\
     logindialog.cpp \
     mainwindow.cpp \
     tableeditorwidget.cpp \
-    clientlistwidget.cpp \
     clientaccountsdialog.cpp \
-    accounttablemodel.cpp
+    accounttablemodel.cpp \
+    accountdelegate.cpp \
+    transactiontablewidget.cpp \
+    transactiontablemodel.cpp \
+    newtransaction.cpp
 
 HEADERS  += \
     logindialog.h \
     mainwindow.h \
     tableeditorwidget.h \
-    clientlistwidget.h \
     clientaccountsdialog.h \
-    accounttablemodel.h
+    accounttablemodel.h \
+    accountdelegate.h \
+    transactiontablewidget.h \
+    transactiontablemodel.h \
+    newtransaction.h
 
 FORMS    += banksystem.ui \
     clientlistwidget.ui \
     appartmentlistwidget.ui \
-    clientaccountsdialog.ui
+    clientaccountsdialog.ui \
+    newtransaction.ui

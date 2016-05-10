@@ -4,9 +4,11 @@
 #include <QMainWindow>
 #include <QMdiArea>
 #include "tableeditorwidget.h"
-#include "clientlistwidget.h"
 #include "clientaccountsdialog.h"
 #include "accounttablemodel.h"
+#include "accountdelegate.h"
+#include "transactiontablewidget.h"
+#include "transactiontablemodel.h"
 class MainWindow : public QMainWindow // főablak
 {
     Q_OBJECT
@@ -20,6 +22,8 @@ protected:
 private slots:
     void userAction_Triggered();
     void clientAction_Triggered();
+    void clientTableView_DoubleClicked(const QModelIndex& index);
+    void accountTableView_DoubleClicked(const QModelIndex& index);
 
 private:
     void setupMenu(); // menü létrehozása
@@ -42,15 +46,18 @@ private:
     QAction* userAction;
 
 
-    clientlistwidget* clientListWidget;
+    TableEditorWidget* clientEditorWidget;
     TableEditorWidget* userEditorWidget;
+    TableEditorWidget *accountEditorWidget;
+    TransactionTableWidget *transactionEditorWidget;
 
 
     QSqlTableModel* userTableModel;
     QSqlTableModel* clientTableModel;
     QSqlTableModel* accountTableModel;
+    QSqlTableModel* transactionTableModel;
 
-
+    AccountDelegate *accountDelegate;
 };
 
 #endif // MAINWINDOW_H

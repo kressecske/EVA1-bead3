@@ -1,18 +1,20 @@
-#ifndef TABLEEDITORWIDGET_H
-#define TABLEEDITORWIDGET_H
-
+#ifndef TRANSACTIONTABLEWIDGET_H
+#define TRANSACTIONTABLEWIDGET_H
 #include <QWidget>
 #include <QTableView>
 #include <QDialogButtonBox>
 #include <QSqlTableModel>
 #include <QAbstractItemDelegate>
+#include <newtransaction.h>
 
-class TableEditorWidget : public QWidget // általános táblaszerkesztő ablak
+
+
+class TransactionTableWidget : public QWidget // általános táblaszerkesztő ablak
 {
     Q_OBJECT
 public:
-    TableEditorWidget(QString title, QWidget *parent = 0);
-    ~TableEditorWidget();
+    TransactionTableWidget(QString title, QWidget *parent = 0);
+    ~TransactionTableWidget();
 
     void setModel(QSqlTableModel* model, QVector<int> hiddenColumns = QVector<int>());
     // modell és rejtett oszlopok beállítása
@@ -21,20 +23,26 @@ public:
 
     QTableView* tableView;
     QSqlTableModel* tableModel;
+    QSqlTableModel* accountTableModel;
+
+
+    void setClientTableModel(QSqlTableModel * clientModel);
+    void setAccountTableModel(QSqlTableModel * accountModel);
 
 private slots:
+
     void addButton_Clicked();
     void removeButton_Clicked();
-    void submitButton_Clicked();
 
 private:
     void setupGui(QVector<int> hiddenColumns);
 
+    NewTransaction* newTransaction;
+
     QDialogButtonBox* buttonBox;
     QPushButton* addButton;
     QPushButton* removeButton;
-    QPushButton* submitButton;
     QPushButton* revertButton;
 };
 
-#endif // TABLEEDITORWIDGET_H
+#endif // TRANSACTIONTABLEWIDGET_H
